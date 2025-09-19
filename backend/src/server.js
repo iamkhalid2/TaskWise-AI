@@ -7,12 +7,15 @@ import aiRoute from './routes/ai.route.js'
 import cookieParser from 'cookie-parser'
 import historyRoute from './routes/history.route.js'
 import paymentRoute from './routes/payment.route.js'
-import rateLimit from './middlewares/rateLimiter.js'
-
+import cors from 'cors'
 dotenv.config()
 
 const app = express()
 
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}))
 app.use(express.json());
 app.use(cookieParser())
 

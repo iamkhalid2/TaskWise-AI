@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
-import { signup } from '../libs/api.js'
+import { signup } from '../libs/api'
 
 
 const UseSignup = () => {
