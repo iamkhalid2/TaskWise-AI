@@ -4,6 +4,7 @@ import { connectDB } from './lib/db.js'
 import authRoute from './routes/auth.route.js'
 import userRoute from './routes/user.route.js'
 import aiRoute from './routes/ai.route.js'
+import dualAiRoute from './routes/dualAi.route.js'
 import cookieParser from 'cookie-parser'
 import historyRoute from './routes/history.route.js'
 import paymentRoute from './routes/payment.route.js'
@@ -22,6 +23,7 @@ app.use(cookieParser())
 app.use('/api/auth',authRoute)
 app.use('/api/user',userRoute)
 app.use('/api/ai',aiRoute)
+app.use('/api/dual-ai',dualAiRoute)
 app.use('/api/payment',paymentRoute)
 app.use('/api/history',historyRoute)
 

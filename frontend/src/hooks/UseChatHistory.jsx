@@ -1,13 +1,19 @@
-import { useQuery } from '@tanstack/react-query'
-import React from 'react'
-import { getAllChatHistory } from '../libs/api'
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import { getAllChatHistory } from '../libs/api';
 
 const UseChatHistory = () => {
     const history = useQuery({
-        queryKey:['chatHistory'],
+        queryKey: ['chatHistory'],
         queryFn: getAllChatHistory,
-    })
-    return { isloading: history.isLoading , history  }
-}
+        retry: false,
+    });
+    
+    return { 
+        isLoading: history.isLoading, 
+        chatHistory: history.data,
+        error: history.error 
+    };
+};
 
-export default UseChatHistory
+export default UseChatHistory;

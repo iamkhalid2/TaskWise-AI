@@ -97,17 +97,18 @@ export const loginRoute = async (req,res) => {
             })
         }
 
-        const todo = []
-        todo.push({
-            name : user.username,
-            email,
-        })
-        console.log(todo)
-
         generateWebToken(user._id,res)
 
         res.status(200).json({
-            message : 'login successfully'
+            success: true,
+            message: 'login successfully',
+            user: {
+                _id: user._id,
+                username: user.username,
+                email: user.email,
+                profilePic: user.profilePic,
+                credits: user.credits,
+            }
         })
 
 
